@@ -1,9 +1,10 @@
+```html
 <!doctype html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kyoto City Guide</title>
+  <title>蘇州 上海 Guide</title>
   <style>
     :root{
       --bg:#0b1020;
@@ -117,28 +118,6 @@
       font-size: 13px;
       white-space: nowrap;
     }
-
-    .chips{
-      display:flex;
-      gap:10px;
-      overflow-x:auto;
-      padding: 12px 2px 2px;
-      scrollbar-width:none;
-    }
-    .chips::-webkit-scrollbar{ display:none; }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--chip);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--text);
-      font-size: 13px;
-      white-space: nowrap;
-    }
-    .chip b{ color:#e0e7ff; }
 
     /* ===== Tabs ===== */
     .tabs{
@@ -387,6 +366,25 @@
       font-size: 12.5px;
       display:none;
     }
+
+    /* ===== Card image toggle (新增) ===== */
+    .imgBox{
+      display: none;
+      margin-top: 10px;
+    }
+
+    .card.show-img .imgBox{
+      display: block;
+    }
+
+    .imgBox img{
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
   </style>
 </head>
 
@@ -407,16 +405,14 @@
         <span class="hint" id="count">0</span>
       </div>
 
-    <div class="tabs" id="tabs">
-      <div class="tab active" data-tab="day1">Day 1</div>
-      <div class="tab" data-tab="day2">Day 2</div>
-      <div class="tab" data-tab="day3">Day 3</div>
-      <div class="tab" data-tab="day4">Day 4</div>
-      <div class="tab" data-tab="day5">Day 5</div>
-      <div class="tab" data-tab="day5">Day 6</div>
-      <div class="tab" data-tab="day5">Day 7</div>
-      <div class="tab" data-tab="food">美食咖啡</div>
-      <div class="tab" data-tab="info">交通資訊</div>
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-tab="day1">Day 1</div>
+        <div class="tab" data-tab="day2">Day 2</div>
+        <div class="tab" data-tab="day3">Day 3</div>
+        <div class="tab" data-tab="day4">Day 4</div>
+        <div class="tab" data-tab="food">美食</div>
+        <div class="tab" data-tab="info">交通資訊</div>
+      </div>
     </div>
 
     <div class="content">
@@ -436,24 +432,46 @@
             </div>
           </div>
 
-          <div class="row titem" data-tags="上海機場">
+          <div class="row titem" data-tags="上海浦東機場">
             <div class="time">13:30</div>
             <div class="tCard">
-              <h3>上海機場</h3>
+              <h3>上海浦東機場</h3>
+              <div class="small">30分鐘左右出海關，搭市域鐵到上海虹橋站，約40分鐘。
+                灰色機場線
+              </div>
               <a class="link" target="_blank" href="https://maps.app.goo.gl/6V87PkyfJD2oxYpM7">📍 開地圖</a>
             </div>
           </div>
-        
-          <div class="row titem" data-tags="全季酒店">
-            <div class="time">14:30</div>
+
+          <div class="row titem" data-tags="上海虹橋站">
+            <div class="time">14:40</div>
             <div class="tCard">
-              <h3>全季酒店</h3>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/MkJ7Qdtfb6UZmPqL7">📍 開地圖</a>
+              <h3>上海虹橋站</h3>
+              <div class="small">搭15:04->15:32 or 15:16->15:50 兩班合適。<br>
+                半小時左右到蘇州站</div>
+              <a class="link" target="_blank" href="https://maps.app.goo.gl/a2X3Ar1SJ3azTeTU8">📍 開地圖</a>
+            </div>
+          </div>
+
+          <div class="row titem" data-tags="蘇州站">
+            <div class="time">15:50</div>
+            <div class="tCard">
+              <h3>蘇州站</h3>
+              <div class="small">打車</div>
+              <a class="link" target="_blank" href="https://maps.app.goo.gl/g6jK5rY8tJ9MyHo87">📍 開地圖</a>
+            </div>
+          </div>
+
+          <div class="row titem" data-tags="安佘酒店">
+            <div class="time">16:00</div>
+            <div class="tCard">
+              <h3>安佘酒店</h3>
+              <a class="link" target="_blank" href="https://maps.app.goo.gl/TKMLiMcWR57okHoz9">📍 開地圖</a>
             </div>
           </div>
 
           <div class="row titem" data-tags="虎丘">
-            <div class="time">15:30</div>
+            <div class="time">16:30</div>
             <div class="tCard">
               <h3>虎丘</h3>
               <div class="small">門票70r<br>⏰ 时间：07:30-17:30（17:00停止入场）<br>
@@ -494,7 +512,6 @@
         <div class="sectionTitle">
           <h2>Day 2 </h2><span>園、拍照｜步行多</span>
         </div>
-
         <div class="timeline">
           <div class="row titem" data-tags="拙政園">
             <div class="time">07:30</div>
@@ -515,7 +532,7 @@
             <div class="time">10:30</div>
             <div class="tCard">
               <h3>蘇州博物館</h3>
-              <div class="small">不須買票但先預約<br>🧩游览路线：(2-3h)<br>主入口→庭院→中央大厅（左拐）
+              <div class="small">不須買票但先預约<br>🧩游览路线：(2-3h)<br>主入口→庭院→中央大厅（左拐）
                 →西廊→吴地遗珍→吴塔国宝→吴中风雅→草堂墨戏→主庭院
                 →现代艺术厅→艺术品商店→出口（忠王府）<br>
                 =============================<br>
@@ -546,10 +563,10 @@
             </div>
           </div>
 
-          <div class="row titem" data-tags="江平路">
+          <div class="row titem" data-tags="平江路">
             <div class="time">16:30</div>
             <div class="tCard">
-              <h3>江平路</h3>
+              <h3>平江路</h3>
               <div class="small">慢慢走走，吃晚餐、搭小船。<br>
               美食路线：<br>
               苏香记➡️梅月轩➡️鑫震源➡️茉香枕河➡️拙林里➡️沈万三➡️余丰堂➡️百年福</div>
@@ -565,7 +582,6 @@
               <a class="link" target="_blank" href="https://maps.app.goo.gl/Gi1SimEaLtm8bcUK8">📍 開地圖</a>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -617,7 +633,7 @@
               15:30水上巴士去月光馬頭</div>
               <a class="link" target="_blank" href="https://maps.app.goo.gl/cE2SAeh3WWnRNwme6">📍 開地圖</a>
             </div>
-          </div>          
+          </div>
 
           <div class="row titem" data-tags="月光馬頭">
             <div class="time">16:00</div>
@@ -628,7 +644,7 @@
               <a class="link" target="_blank" href="https://maps.app.goo.gl/p9TL1VEk6pcWd1hS8">📍 開地圖</a>
             </div>
           </div>
-          
+
           <div class="row titem" data-tags="東方之門">
             <div class="time">20:00</div>
             <div class="tCard">
@@ -644,44 +660,167 @@
       <!-- Food -->
       <div class="section" id="food" data-section="list">
         <div class="sectionTitle">
-          <h2>美食咖啡</h2><span>就近安排</span>
+          <h2>美食</h2><span>就近安排</span>
         </div>
 
         <div class="grid">
-          <div class="card item" data-tags="抹茶 甜點 祇園">
+          <!-- 第一張：新增看圖片 + 圖片區 -->
+          <div class="card item" data-tags="山塘街｜姑蘇船宴">
             <div class="cardHead">
               <div class="title">
-                <h3>祇園抹茶甜點</h3>
-                <div class="meta">
-                  <span class="pill">🍵 抹茶</span>
-                  <span class="pill">⏱️ 30–60 min</span>
-                </div>
+                <h3>山塘街｜姑蘇船宴</h3>
               </div>
               <div class="actions">
-                <button class="btn" data-toast="把「祇園抹茶」加入清單">加入</button>
+                <button class="btn secondary" data-img="images/姑蘇船宴.jpg">看圖片</button>
               </div>
             </div>
-            <p class="desc">下午茶很適合插在行程空檔，避開晚餐尖峰。</p>
+            <p class="desc">⭐️姑苏名菜，姑苏松鼠鱼，桂花红烧肉，蟹粉豆腐，荠菜银鱼羹，白玉方糕。上菜很快，可能是预制菜，但是松鼠桂鱼还不错酸甜口的，红烧肉烂烂的很下饭，但是吃多了有点腻，蟹粉豆腐拌饭好吃，银鱼羹个人感觉有点腥，方糕一般，个人不太喜欢有点硬。</p>
+
+            <div class="imgBox">
+              <img src="images/姑蘇船宴.jpg">
+            </div>
           </div>
 
-          <div class="card item" data-tags="拉麵 晚餐">
+          <div class="card item" data-tags="山塘街｜熊猫苏式火锅">
             <div class="cardHead">
               <div class="title">
-                <h3>拉麵/居酒屋晚餐</h3>
-                <div class="meta">
-                  <span class="pill">🍜 熱食</span>
-                  <span class="pill">🌙 晚上</span>
-                </div>
+                <h3>山塘街｜熊猫苏式火锅</h3>
               </div>
               <div class="actions">
-                <button class="btn" data-toast="已加入：晚餐備選">加入</button>
+                <button class="btn secondary" data-img="images/蘇式熊貓火鍋.jpg">看圖片</button>
               </div>
             </div>
-            <p class="desc">先斗町或河岸附近都不錯，記得先查營業時間。</p>
-          </div>
-        </div>
-      </div>
+            <p class="desc">⭐️进门满满的熊猫主题简直萌化了我的心啊~番茄锅底不管涮什么都好吃！苏式盖碗九宫格荤素搭配，满满仪式感，甜品没想到也精致到了极致！</p>
 
+            <div class="imgBox">
+              <img src="images/蘇式熊貓火鍋.jpg">
+            </div>
+          </div>
+
+          <div class="card item" data-tags="山塘街｜張小蟹">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜張小蟹</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/張小蟹.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️江苏老字号！超大只醉蟹醉虾😍😍满黄的🦀，淡淡的酒香，加上香甜的卤香，肉质饱满到仿佛能咬出汁来🤤！</p>
+
+            <div class="imgBox">
+              <img src="images/張小蟹.jpg">
+            </div>
+          </div>
+
+         <div class="card item" data-tags="山塘街｜熊貓蘇式豆花">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜熊貓蘇式豆花</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/熊貓蘇式豆花.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️芋泥麻薯豆花✅口感糯叽叽的，绵密香滑，不是很甜的那种👍🏻<br>⭐️茉莉酒酿豆花✅上面是新鲜的茉莉花花苞，酒酿夹着茉莉花的味道，豆花qq弹弹的~太好吃了😋😋</p>
+
+            <div class="imgBox">
+              <img src="images/熊貓蘇式豆花.jpg">
+            </div>
+          </div>
+
+        <div class="card item" data-tags="山塘街｜白居易茶樓">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜白居易茶樓</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/白居易茶樓.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️特色的灯笼🏮还有雅致的中式装修风格，来苏州怎能不品正宗苏帮菜，外酥里嫩，酸甜适中的松鼠桂鱼🐟每一道菜的味道都恰到好处~😋😋</p>
+
+            <div class="imgBox">
+              <img src="images/白居易茶樓.jpg">
+            </div>
+          </div>
+
+        <div class="card item" data-tags="山塘街｜江南蟹殼黃">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜江南蟹殼黃</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/江南蟹殼黃.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️10块钱7个！可以拼口味！有6种口味，分别是豆沙，黑芝麻，梅干菜，葱油，椒盐和萝卜丝。超级推荐3个口味：葱油，椒盐，萝卜丝！</p>
+            <div class="imgBox">
+              <img src="images/江南蟹殼黃.jpg">
+            </div>
+          </div>
+
+        <div class="card item" data-tags="山塘街｜萬福義糕糰">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜萬福義糕糰</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/萬福義糕糰.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️万福兴，一家有百年历史的老字号糕团店，这里的糕团种类繁多，每一款都有其独特的风味。人均：15元/人📍位置：山塘街303号</p>
+            <div class="imgBox">
+              <img src="images/萬福義糕糰.jpg">
+            </div>
+          </div>          
+
+        <div class="card item" data-tags="山塘街｜鑫震源">
+            <div class="cardHead">
+              <div class="title">
+                <h3>山塘街｜鑫震源</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/鑫震源.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️只能说简直了，太好吃了，尤其蟹黄的，他家烧卖也好吃，还要了份虾籽馄饨，也很好吃😋在我们点了两份生煎一份馄饨烧卖的情况下，又额外单独点了一份蟹黄的生煎</p>
+            <div class="imgBox">
+              <img src="images/鑫震源.jpg">
+            </div>
+          </div>   
+
+        <div class="card item" data-tags="蘇州博物館｜翁同阁面馆">
+            <div class="cardHead">
+              <div class="title">
+                <h3>蘇州博物館｜翁同阁面馆</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/翁同阁面馆.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️推荐这家苏州面馆，不是一贯的网红风。蟹黄面很好吃，小姐姐服务态度超级好。免费续面续小菜，二楼风景很雅致。地址：苏州博物馆出口一直沿着梧桐路走大约两百米</p>
+            <div class="imgBox">
+              <img src="images/翁同阁面馆.jpg">
+            </div>
+          </div>
+
+  
+        <div class="card item" data-tags="平江路｜苏香记">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜苏香记</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/苏香记.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️店很小，点完单拿着小盘子坐在平江路边吃，看看河中的小鱼太惬意啦！👉点了鸡爪和鸭头，鹌鹑蛋，鸭脖，卤的真的太入味了！</p>
+            <div class="imgBox">
+              <img src="images/苏香记.jpg">
+            </div>
+          </div>  
+          
       <!-- Info -->
       <div class="section" id="info">
         <div class="sectionTitle">
@@ -721,7 +860,6 @@
     </div>
   </div>
 
-
   <div class="toast" id="toast"></div>
 
   <script>
@@ -733,17 +871,18 @@
         tabs.forEach(x => x.classList.remove('active'));
         sections.forEach(s => s.classList.remove('active'));
         t.classList.add('active');
-        document.getElementById(t.dataset.tab).classList.add('active');
+        const target = document.getElementById(t.dataset.tab);
+        if (target) target.classList.add('active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
 
-    // Map open
+    // Map open (你目前沒用到 data-map，保留不影響)
     document.querySelectorAll('[data-map]').forEach(btn => {
       btn.addEventListener('click', () => window.open(btn.dataset.map, '_blank', 'noopener,noreferrer'));
     });
 
-    // Copy
+    // Toast
     const toastEl = document.getElementById('toast');
     const showToast = (msg) => {
       toastEl.textContent = msg;
@@ -767,10 +906,13 @@
       btn.addEventListener('click', () => showToast(btn.dataset.toast));
     });
 
-    // Stay nav
-    document.getElementById('stayNav').addEventListener('click', () => {
-      window.open("https://www.google.com/maps/search/?api=1&query=Hotel%20Mystays%20Kyoto%20Shijo", "_blank", "noopener,noreferrer");
-    });
+    // Stay nav（防呆：避免找不到 #stayNav 造成整個 JS 中斷）
+    const stayNav = document.getElementById('stayNav');
+    if (stayNav) {
+      stayNav.addEventListener('click', () => {
+        window.open("https://www.google.com/maps/search/?api=1&query=Hotel%20Mystays%20Kyoto%20Shijo", "_blank", "noopener,noreferrer");
+      });
+    }
 
     // Search filter
     const q = document.getElementById('q');
@@ -790,8 +932,28 @@
     };
 
     q.addEventListener('input', applyFilter);
-    // initial count
     applyFilter();
+
+    // ===== Image toggle (新增：data-img) =====
+    document.querySelectorAll('[data-img]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        const imgBox = card.querySelector('.imgBox');
+        const img = imgBox ? imgBox.querySelector('img') : null;
+
+        const src = btn.dataset.img;
+        const alt = btn.dataset.imgalt || '圖片';
+
+        if (img) {
+          img.src = src;
+          img.alt = alt;
+        }
+
+        card.classList.toggle('show-img');
+        btn.textContent = card.classList.contains('show-img') ? '收起圖片' : '看圖片';
+      });
+    });
   </script>
 </body>
 </html>
+```
