@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -6,386 +5,400 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>蘇州 上海 Guide</title>
   <style>
-    :root{
-      --bg:#0b1020;
-      --surface:#0f172a;
-      --card:#111c33;
-      --card2:#0f1a30;
-      --text:#e8eefc;
-      --muted:#a9b6d4;
-      --muted2:#7f8bb0;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
+  :root{
+    /* ===== 園林夕照：宣紙米白 / 水面墨綠 / 夕陽暖金 / 黛瓦青灰 ===== */
+    --bg:#f7f1e6;                      /* 米白宣紙底 */
+    --surface: rgba(255,255,255,.74);
+    --card: rgba(255,255,255,.76);
+    --card2: rgba(255,255,255,.60);
+    --text:#1e2326;                    /* 墨色字 */
+    --muted: rgba(30,35,38,.70);
+    --muted2: rgba(30,35,38,.55);
+    --line: rgba(30,35,38,.12);
+    --shadow: 0 18px 46px rgba(30,35,38,.10);
+    --shadow2: 0 10px 26px rgba(30,35,38,.08);
+    --radius:18px;
 
-      --brand:#7c3aed;   /* 紫 */
-      --brand2:#22c55e;  /* 綠（點綴） */
-      --brand3:#38bdf8;  /* 藍（點綴） */
-      --chip: rgba(255,255,255,.08);
+    --brand:#2f6f66;                   /* 水邊青綠 */
+    --brand2:#d9b47a;                  /* 夕陽淡金 */
+    --brand3:#355a63;                  /* 黛瓦青灰 */
+    --chip: rgba(47,111,102,.10);
 
-      font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-    }
+    font-family:
+      "Noto Serif TC","Noto Serif SC","Songti TC","STSong","Source Han Serif TC",
+      ui-serif, Georgia, "Times New Roman",
+      "Noto Sans TC","PingFang TC","Microsoft JhengHei", sans-serif;
+  }
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 520px at 10% -10%, rgba(124,58,237,.35), transparent 55%),
-        radial-gradient(900px 420px at 90% 10%, rgba(56,189,248,.22), transparent 55%),
-        linear-gradient(180deg, #070a14, var(--bg));
-      color:var(--text);
-    }
+  *{ box-sizing:border-box; }
 
-    .app{
-      max-width: 460px;
-      margin: 0 auto;
-      min-height: 100vh;
-      padding-bottom: 120px;
-    }
+  body{
+    margin:0;
+    /* 天空暖金 + 水氣青綠（更貼近你那張照片的光感） */
+    background:
+      radial-gradient(980px 560px at 50% -10%, rgba(217,180,122,.36), transparent 62%),
+      radial-gradient(1100px 640px at 18% 32%, rgba(47,111,102,.16), transparent 62%),
+      radial-gradient(980px 560px at 92% 58%, rgba(53,90,99,.10), transparent 62%),
+      linear-gradient(180deg, #fbf6ee, var(--bg));
+    color:var(--text);
+  }
 
-    /* ===== Top hero ===== */
-    .hero{
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      padding: 18px 16px 12px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.10)),
-        radial-gradient(900px 360px at 30% 0%, rgba(124,58,237,.42), transparent 60%),
-        radial-gradient(900px 360px at 90% 20%, rgba(56,189,248,.18), transparent 60%),
-        rgba(15,23,42,.75);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
+  .app{
+    max-width: 520px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding-bottom: 120px;
+  }
 
-    .heroTop{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
-    }
-    .city{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .city h1{
-      margin:0;
-      font-size: 20px;
-      letter-spacing: .3px;
-      line-height: 1.2;
-    }
-    .city p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.4;
-    }
+  /* ===== Top hero ===== */
+  .hero{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 18px 16px 12px;
+    background:
+      linear-gradient(180deg, rgba(247,241,230,.94), rgba(247,241,230,.72));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    background:
+    linear-gradient(180deg, rgba(247,241,230,.92), rgba(247,241,230,.72)),
+    url("images/garden.jpg") center/cover no-repeat;
+  }
 
-    .badge{
-      align-self:flex-start;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: linear-gradient(120deg, rgba(124,58,237,.25), rgba(56,189,248,.18));
-      border: 1px solid rgba(255,255,255,.14);
-      color: #dbeafe;
-      font-weight: 700;
-      font-size: 12px;
-      white-space: nowrap;
-    }
+  .heroTop{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .city{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .city h1{
+    margin:0;
+    font-size: 20px;
+    letter-spacing: .6px;
+    line-height: 1.2;
+  }
+  .city p{
+    margin:0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.4;
+  }
 
-    .search{
-      margin-top: 12px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .search input{
-      width:100%;
-      border:none;
-      outline:none;
-      background: transparent;
-      color: var(--text);
-      font-size: 14px;
-    }
-    .search .hint{
-      color: var(--muted2);
-      font-size: 13px;
-      white-space: nowrap;
-    }
 
-    /* ===== Tabs ===== */
-    .tabs{
-      display:flex;
-      gap:10px;
-      overflow-x:auto;
-      padding: 12px 16px 6px;
-      scrollbar-width:none;
-    }
-    .tabs::-webkit-scrollbar{ display:none; }
-    .tab{
-      cursor:pointer;
-      user-select:none;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      transition:.15s ease;
-      white-space:nowrap;
-    }
-    .tab.active{
-      color: #0b1020;
-      background: linear-gradient(120deg, rgba(124,58,237,.95), rgba(56,189,248,.85));
-      border-color: transparent;
-      font-weight: 900;
-      box-shadow: 0 12px 30px rgba(124,58,237,.25);
-    }
+  .search{
+    margin-top: 12px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.74);
+    border: 1px solid rgba(30,35,38,.14);
+  }
+  .search input{
+    width:100%;
+    border:none;
+    outline:none;
+    background: transparent;
+    color: var(--text);
+    font-size: 14px;
+  }
+  .search .hint{
+    color: var(--muted2);
+    font-size: 13px;
+    white-space: nowrap;
+  }
 
-    /* ===== Content ===== */
-    .content{ padding: 10px 16px 0; }
-    .section{ display:none; }
-    .section.active{ display:block; }
+  /* ===== Tabs ===== */
+  .tabs{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding: 12px 16px 6px;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{ display:none; }
 
-    .sectionTitle{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin: 14px 2px 10px;
-    }
-    .sectionTitle h2{
-      margin:0;
-      font-size: 15px;
-      letter-spacing:.2px;
-    }
-    .sectionTitle span{
-      color: var(--muted2);
-      font-size: 12.5px;
-    }
+  .tab{
+    cursor:pointer;
+    user-select:none;
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    border: 1px solid rgba(30,35,38,.12);
+    background: rgba(255,255,255,.56);
+    color: var(--muted);
+    transition:.15s ease;
+    white-space:nowrap;
+  }
+  /* Active：黛瓦青灰→水邊青綠 */
+  .tab.active{
+    color: #ffffff;
+    background: linear-gradient(120deg, rgba(53,90,99,.96), rgba(47,111,102,.92));
+    border-color: transparent;
+    font-weight: 900;
+    box-shadow: 0 10px 22px rgba(53,90,99,.20);
+  }
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
+  /* ===== Content ===== */
+  .content{ padding: 10px 16px 0; }
+  .section{ display:none; }
+  .section.active{ display:block; }
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      padding: 14px;
-      box-shadow: var(--shadow2);
-    }
+  .sectionTitle{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin: 14px 2px 10px;
+  }
+  .sectionTitle h2{
+    margin:0;
+    font-size: 15px;
+    letter-spacing:.2px;
+  }
+  .sectionTitle span{
+    color: var(--muted2);
+    font-size: 12.5px;
+  }
 
-    .cardHead{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
-    }
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 
-    .title{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      min-width: 0;
-    }
-    .title h3{
-      margin:0;
-      font-size: 15.5px;
-      line-height: 1.25;
-    }
-    .meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      color: var(--muted);
-      font-size: 12.8px;
-      line-height:1.4;
-    }
-    .pill{
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-    }
+  /* 卡片：宣紙＋很淡暖影 */
+  .card{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.64));
+    border: 1px solid rgba(30,35,38,.12);
+    border-radius: var(--radius);
+    padding: 14px;
+    box-shadow: var(--shadow2);
+  }
 
-    .actions{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .btn{
-      cursor:pointer;
-      border:none;
-      border-radius: 12px;
-      padding: 10px 12px;
-      font-weight: 900;
-      color: #0b1020;
-      background: linear-gradient(120deg, rgba(255,255,255,.90), rgba(255,255,255,.72));
-      box-shadow: 0 12px 28px rgba(0,0,0,.25);
-      transition:.15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.secondary{
-      background: rgba(255,255,255,.08);
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow:none;
-      font-weight: 800;
-    }
+  .cardHead{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
 
-    .desc{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 13.2px;
-      line-height: 1.6;
-    }
+  .title{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    min-width: 0;
+  }
+  .title h3{
+    margin:0;
+    font-size: 15.6px;
+    line-height: 1.25;
+  }
 
-    /* ===== Timeline (Day plan) ===== */
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 64px 1fr;
-      gap: 12px;
-      align-items:start;
-    }
-    .time{
-      font-weight: 900;
-      color: #c7d2fe;
-      font-variant-numeric: tabular-nums;
-      padding-top: 10px;
-    }
-    .tCard{
-      position: relative;
-      border-radius: var(--radius);
-      padding: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(520px 120px at 20% 0%, rgba(124,58,237,.20), transparent 60%),
-        rgba(255,255,255,.04);
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-    }
-    .tCard::before{
-      content:"";
-      position:absolute;
-      left: 0;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--brand), var(--brand3));
-      opacity: .85;
-    }
-    .tCard h3{ margin:0 0 6px; font-size: 15.2px; }
-    .tCard .small{ color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    color: var(--muted);
+    font-size: 12.8px;
+    line-height:1.4;
+  }
 
-    .link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-top: 10px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(56,189,248,.10);
-      border: 1px solid rgba(56,189,248,.20);
-      color:#c7ecff;
-      font-weight: 900;
-      font-size: 13px;
-      text-decoration:none;
-      width: fit-content;
-    }
+  /* pill：水色標籤 */
+  .pill{
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: rgba(47,111,102,.09);
+    border: 1px solid rgba(47,111,102,.20);
+    color: rgba(47,111,102,.92);
+    font-size: 12px;
+    white-space: nowrap;
+  }
 
-    /* ===== Bottom stay bar ===== */
-    .stay{
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 14px;
-      width: min(460px, calc(100% - 28px));
-      border-radius: 22px;
-      padding: 14px;
-      background:
-        radial-gradient(900px 220px at 10% 0%, rgba(255,255,255,.10), transparent 55%),
-        linear-gradient(135deg, rgba(124,58,237,.45), rgba(56,189,248,.18)),
-        rgba(15,23,42,.92);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      display:flex;
-      gap: 12px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .stayInfo{ min-width:0; }
-    .stayInfo .label{
-      font-size: 12.5px;
-      color: rgba(255,255,255,.80);
-      margin-bottom: 4px;
-    }
-    .stayInfo .name{
-      font-weight: 950;
-      letter-spacing:.2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .stayInfo .addr{
-      margin-top: 4px;
-      color: rgba(255,255,255,.75);
-      font-size: 12.5px;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
+  .actions{
+    display:flex;
+    gap:8px;
+    align-items:center;
+  }
 
-    .toast{
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 92px;
-      background: rgba(0,0,0,.65);
-      border: 1px solid rgba(255,255,255,.12);
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      display:none;
-    }
+  /* 按鈕：更像園林的穩重青黛 */
+  .btn{
+    cursor:pointer;
+    border:none;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-weight: 900;
+    color: #fff;
+    background: linear-gradient(120deg, rgba(53,90,99,.96), rgba(47,111,102,.92));
+    box-shadow: 0 12px 24px rgba(47,111,102,.18);
+    transition:.15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform: translateY(-1px); }
 
-    /* ===== Card image toggle (新增) ===== */
-    .imgBox{
-      display: none;
-      margin-top: 10px;
-    }
+  .btn.secondary{
+    background: rgba(255,255,255,.62);
+    color: rgba(30,35,38,.90);
+    border: 1px solid rgba(30,35,38,.14);
+    box-shadow:none;
+    font-weight: 800;
+  }
 
-    .card.show-img .imgBox{
-      display: block;
-    }
+  .desc{
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 13.2px;
+    line-height: 1.6;
+  }
 
-    .imgBox img{
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-    }
+  /* ===== Timeline (Day plan) ===== */
+  .timeline{
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+  .row{
+    display:grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items:start;
+  }
 
-  </style>
+  /* 時間字：水邊青綠 */
+  .time{
+    font-weight: 900;
+    color: rgba(47,111,102,.95);
+    font-variant-numeric: tabular-nums;
+    padding-top: 10px;
+  }
+
+  /* tCard：白牆＋夕陽暖光暈染 */
+  .tCard{
+    position: relative;
+    border-radius: var(--radius);
+    padding: 14px;
+    border: 1px solid rgba(30,35,38,.12);
+    background:
+      radial-gradient(560px 160px at 22% 0%, rgba(217,180,122,.14), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.62));
+    box-shadow: var(--shadow2);
+    overflow:hidden;
+  }
+
+  /* 左側墨線：青綠→淡金（像夕照打在水邊） */
+  .tCard::before{
+    content:"";
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(47,111,102,.95), rgba(217,180,122,.72));
+    opacity: .92;
+  }
+
+  .tCard h3{ margin:0 0 6px; font-size: 15.2px; }
+  .tCard .small{ color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  /* 地圖連結：園林指示牌 */
+  .link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top: 10px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(47,111,102,.10);
+    border: 1px solid rgba(47,111,102,.22);
+    color: rgba(47,111,102,.95);
+    font-weight: 900;
+    font-size: 13px;
+    text-decoration:none;
+    width: fit-content;
+  }
+
+  /* ===== Bottom stay bar ===== */
+  .stay{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14px;
+    width: min(520px, calc(100% - 28px));
+    border-radius: 22px;
+    padding: 14px;
+    background:
+      radial-gradient(920px 260px at 30% 0%, rgba(217,180,122,.22), transparent 60%),
+      linear-gradient(135deg, rgba(255,255,255,.80), rgba(255,255,255,.62));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(30,35,38,.12);
+    box-shadow: var(--shadow);
+    display:flex;
+    gap: 12px;
+    align-items:center;
+    justify-content:space-between;
+    color: var(--text);
+  }
+
+  .stayInfo{ min-width:0; }
+  .stayInfo .label{
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .stayInfo .name{
+    font-weight: 950;
+    letter-spacing:.2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .stayInfo .addr{
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12.5px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+  }
+
+  .toast{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 92px;
+    background: rgba(30,35,38,.76);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    display:none;
+  }
+
+  /* ===== Card image toggle (新增) ===== */
+  .imgBox{
+    display: none;
+    margin-top: 10px;
+  }
+  .card.show-img .imgBox{ display: block; }
+  .tCard.show-img .imgBox{ display: block; }
+
+  .imgBox img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(30,35,38,.14);
+  }
+</style>
+
+
 </head>
 
 <body>
@@ -396,7 +409,6 @@
           <h1>蘇州、上海 City Guide</h1>
           <p>7 天 6 夜</p>
         </div>
-        <div class="badge">離線友善 </div>
       </div>
 
       <div class="search">
@@ -462,11 +474,18 @@
             </div>
           </div>
 
-          <div class="row titem" data-tags="安佘酒店">
+          <div class="row titem" data-tags="安佘飯店">
             <div class="time">16:00</div>
             <div class="tCard">
-              <h3>安佘酒店</h3>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/TKMLiMcWR57okHoz9">📍 開地圖</a>
+              <h3>安佘飯店</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/TKMLiMcWR57okHoz9">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/安佘飯店.jpg">看圖片</button>
+              </div>
+
+              <div class="imgBox">
+                <img src="images/安佘飯店.jpg" alt="安佘酒店">
+              </div>
             </div>
           </div>
 
@@ -474,11 +493,17 @@
             <div class="time">16:30</div>
             <div class="tCard">
               <h3>虎丘</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/5MuTyJYDuZqNZ3r48">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/虎丘.jpg">看圖片</button>
+              </div>
               <div class="small">門票70r<br>⏰ 时间：07:30-17:30（17:00停止入场）<br>
                   推荐路线(全程约2.5h)<br>
                   南门➠海涌桥➠拥翠山庄➠红枫林➠冷香阁➠第三泉➠剑池➠雪浪亭➠虎丘塔➠一榭园（北门）➠百步趋➠望苏台➠养鹤涧➠万景山庄➠南门<br>
                    17:30 最後一班船到山塘街。</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/5MuTyJYDuZqNZ3r48">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/虎丘.jpg" alt="虎丘">
+              </div>
             </div>
           </div>
 
@@ -486,6 +511,10 @@
             <div class="time">18:00</div>
             <div class="tCard">
               <h3>七里山塘</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/HyrmGWTFFKN7ekiq7">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/七里山塘.jpg">看圖片</button>
+              </div>
               <div class="small">游览顺序:<br>
                   新民桥以北→山塘景区→阊门→民国风情街<br>
                   √新民桥以北:以各种小吃居多，一直走可以到虎丘<br>
@@ -501,7 +530,9 @@
                   姑蘇船宴、熊貓蘇式火鍋、茉小茶、張小蟹、熊貓蘇式豆花
                   、居易茶酒樓、江南蟹殼黃、益昌福包子、萬福義糕糰、裕興記、鑫震源
                   </div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/HyrmGWTFFKN7ekiq7">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/七里山塘.jpg" alt="七里山塘">
+              </div>
             </div>
           </div>
         </div>
@@ -517,6 +548,10 @@
             <div class="time">07:30</div>
             <div class="tCard">
               <h3>拙政園</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/pex5etrQuqQ4KSTv5">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/拙政園.jpg">看圖片</button>
+              </div>
               <div class="small">門票提早1周買70r<br>推薦路線(2-3h)<br>
               ➡️拙政园入口（东南1门）➡️ 兰雪堂➡️ 听雨轩➡️
               玲珑馆➡️海棠春坞➡️远香堂➡️ 倚玉轩➡️ 小沧浪➡️ 
@@ -524,7 +559,9 @@
               塔影亭➡️ 留听阁➡️ 与谁同坐轩➡️ 倒影楼➡️ 见山楼➡️ 
               雪香云蔚亭➡️ 待霜亭➡️ 梧竹幽居➡️ 秫香馆➡️ 天泉亭➡️出口
               </div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/pex5etrQuqQ4KSTv5">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/拙政園.jpg" alt="拙政園">
+              </div>
             </div>
           </div>
 
@@ -532,12 +569,18 @@
             <div class="time">10:30</div>
             <div class="tCard">
               <h3>蘇州博物館</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/5tNcRghhyPiSYhQJ6">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/蘇州博物館.jpg">看圖片</button>
+              </div>
               <div class="small">不須買票但先預约<br>🧩游览路线：(2-3h)<br>主入口→庭院→中央大厅（左拐）
                 →西廊→吴地遗珍→吴塔国宝→吴中风雅→草堂墨戏→主庭院
                 →现代艺术厅→艺术品商店→出口（忠王府）<br>
                 =============================<br>
               🍜吃饭:翁同阁面馆(17r)</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/5tNcRghhyPiSYhQJ6">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/蘇州博物館.jpg" alt="蘇州博物館">
+              </div>
             </div>
           </div>
 
@@ -545,6 +588,10 @@
             <div class="time">14:00</div>
             <div class="tCard">
               <h3>獅子林</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/9fnAmMu4BMyPRATR6">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/獅子林.jpg">看圖片</button>
+              </div>
               <div class="small">門票40r<br>
                 游玩路线:(17:00)關園<br>
                 入口→门厅→祠堂→燕誉堂→小方厅→打盹亭→
@@ -559,7 +606,9 @@
                 ✅ 「燕誉堂」框景：透过月洞门拍白紫藤<br>
                 ✅ 「石舫」倒影：下午四点水面最平静<br>
                 ✅ 「修竹阁」窗景：竹影婆娑超有禅意</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/9fnAmMu4BMyPRATR6">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/獅子林.jpg" alt="獅子林">
+              </div>
             </div>
           </div>
 
@@ -567,10 +616,16 @@
             <div class="time">16:30</div>
             <div class="tCard">
               <h3>平江路</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/BA6d1aHKyrb7g8o5A">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/平江路.jpg">看圖片</button>
+              </div>
               <div class="small">慢慢走走，吃晚餐、搭小船。<br>
               美食路线：<br>
               苏香记➡️梅月轩➡️鑫震源➡️茉香枕河➡️拙林里➡️沈万三➡️余丰堂➡️百年福</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/BA6d1aHKyrb7g8o5A">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/平江路.jpg" alt="平江路">
+              </div>
             </div>
           </div>
 
@@ -578,8 +633,14 @@
             <div class="time">19:00</div>
             <div class="tCard">
               <h3>觀前街</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/Gi1SimEaLtm8bcUK8">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/觀前街.jpg">看圖片</button>
+              </div>
               <div class="small">如果時間夠就去，或者回去休息。</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/Gi1SimEaLtm8bcUK8">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/平江路.jpg" alt="平江路">
+              </div>
             </div>
           </div>
         </div>
@@ -596,8 +657,14 @@
             <div class="time">10:00</div>
             <div class="tCard">
               <h3>十全街</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/kNppEuMVbhC6P7Lx5">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/十全街.jpg">看圖片</button>
+              </div>
               <div class="small">吃東西的</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/kNppEuMVbhC6P7Lx5">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/十全街.jpg" alt="十全街">
+              </div>
             </div>
           </div>
 
@@ -605,12 +672,18 @@
             <div class="time">11:00</div>
             <div class="tCard">
               <h3>網師園</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/3qYamWALw2aF6Rtp7">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/網師園.jpg">看圖片</button>
+              </div>
               <div class="small">📝游玩路线(30r)：<br>
                 门厅→轿厅→万卷堂→撷秀楼→五峰书屋→集虚斋→竹外一枝轩→看松读画轩→
                 殿春簃→冷泉亭→月到风来亭→濯缨水阁→露华馆→蹈和馆→琴室→小山丛桂轩→引静桥→梯云室→瓷器馆→出口<br>
                  =============================<br>
               🍜苏州汤面推荐：姑苏桥·文人苏式面馆</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/3qYamWALw2aF6Rtp7">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/網師園.jpg" alt="網師園">
+              </div>
             </div>
           </div>
 
@@ -618,8 +691,14 @@
             <div class="time">13:00</div>
             <div class="tCard">
               <h3>蘇州中心廣場</h3>
+              <div class="tActions">
+                <a class="link" target="_blank"href="https://maps.app.goo.gl/yDntzGbKoCggf9fX9">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/蘇州中心廣場.jpg">看圖片</button>
+              </div>              
               <div class="small">3f平台可以拍照</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/yDntzGbKoCggf9fX9">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/蘇州中心廣場.jpg" alt="蘇州中心廣場">
+              </div>
             </div>
           </div>
 
@@ -627,11 +706,17 @@
             <div class="time">14:00</div>
             <div class="tCard">
               <h3>東方之門</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/cE2SAeh3WWnRNwme6">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/東方之門.jpg">看圖片</button>
+              </div>
               <div class="small">💎💎💎东方之门可以上楼，从楼下劳斯莱斯旁边的门可以进去坐电梯。东方之门53楼有一家【淡气球高空湖景咖啡厅】
                 在里面可以俯瞰整个金鸡湖，下午茶套餐才人均几十，拍照特出片<br>
                =============================<br>
               15:30水上巴士去月光馬頭</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/cE2SAeh3WWnRNwme6">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/東方之門.jpg" alt="東方之門">
+              </div>
             </div>
           </div>
 
@@ -639,9 +724,15 @@
             <div class="time">16:00</div>
             <div class="tCard">
               <h3>月光馬頭</h3>
+              <div class="tActions">
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/p9TL1VEk6pcWd1hS8">📍 開地圖</a>
+                <button class="btn secondary" data-img="images/月光馬頭.jpg">看圖片</button>
+              </div>
               <div class="small">去誠品，吃晚餐。<br>
                 19:30搭免費水上巴士去望湖格馬頭</div>
-              <a class="link" target="_blank" href="https://maps.app.goo.gl/p9TL1VEk6pcWd1hS8">📍 開地圖</a>
+              <div class="imgBox">
+                <img src="images/月光馬頭.jpg" alt="月光馬頭">
+              </div>
             </div>
           </div>
 
@@ -820,7 +911,270 @@
               <img src="images/苏香记.jpg">
             </div>
           </div>  
+
+        <div class="card item" data-tags="平江路｜梅月轩·梅花糕">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜梅月轩·梅花糕</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/梅月轩.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️📍平江路55号，红豆梅花糕，太好吃了！很细腻的红豆沙，强烈推荐！</p>
+            <div class="imgBox">
+              <img src="images/梅月轩.jpg">
+            </div>
+          </div>           
+
+        <div class="card item" data-tags="平江路｜李百蟹">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜李百蟹</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/李百蟹.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️📍狮林巷99号，必点招牌蟹黄面，漂亮的苏式糖水、芋泥麻薯、抹茶软酪、草莓麻薯冰，一边吃饭还可以看到摇橹船的阿婆，真的太惬意了</p>
+            <div class="imgBox">
+              <img src="images/李百蟹.jpg">
+            </div>
+          </div>  
+
+        <div class="card item" data-tags="平江路｜山海焗·苏州家常菜砂锅煲">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜山海焗·苏州家常菜砂锅煲</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/山海焗.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️📍建新巷10号，平时本地人比较多，必点酱香牛蛙鸭舌煲，有烟火气十足，巴掌大太湖大虾，有小朋友的闭眼冲，还有苏帮菜松鼠桂鱼，鱼肉炸的很脆，浇汁鲜甜，嘎嘎好吃</p>
+            <div class="imgBox">
+              <img src="images/山海焗.jpg">
+            </div>
+          </div> 
+
+        <div class="card item" data-tags="平江路｜囍老板·苏州热炒饭店">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜囍老板·苏州热炒饭店</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/囍老板.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️📍丁家巷23号，苏州家常菜，10年老店，推荐，蟹粉鲜虾粉丝煲，虾好大只，现剥蟹黄。老苏州咸肉菜饭，亲测好吃</p>
+            <div class="imgBox">
+              <img src="images/囍老板.jpg">
+            </div>
+          </div>
+
+        <div class="card item" data-tags="平江路｜啞巴生煎">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜啞巴生煎</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/啞巴生煎.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️最喜欢生煎的酥脆外皮，皮冻给的很足，肉馅鲜甜一口爆汁喝到爽，哑巴生煎不愧是招牌，常吃常新😋</p>
+            <div class="imgBox">
+              <img src="images/啞巴生煎.jpg">
+            </div>
+          </div> 
+
+        <div class="card item" data-tags="平江路｜茉香枕河">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜茉香枕河</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/茉香枕河.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️店里装修很有江南那味儿，拍照也出片。招牌东坡肉超大一块，肥瘦刚好，入口即化；蟹粉豆腐拌饭绝了，豆香混着蟹鲜，能干两碗饭</p>
+            <div class="imgBox">
+              <img src="images/茉香枕河.jpg">
+            </div>
+          </div>  
+
+        <div class="card item" data-tags="平江路｜百年福">
+            <div class="cardHead">
+              <div class="title">
+                <h3>平江路｜百年福</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/百年福.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️💰大份20块12个，小份15块8个，反正如果排队人不多可以尝尝！</p>
+            <div class="imgBox">
+              <img src="images/百年福.jpg">
+            </div>
+          </div> 
+
+        <div class="card item" data-tags="觀前路｜晚园苏式火锅">
+            <div class="cardHead">
+              <div class="title">
+                <h3>觀前路｜晚园苏式火锅</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/晚园苏式火锅.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️📍观前街57号，推门坠入江南园林画卷，青瓦白墙配雕花木窗，江南味儿的火锅，番茄锅巨清爽哦，糯叽叽甜品又好看、又好吃</p>
+            <div class="imgBox">
+              <img src="images/晚园苏式火锅.jpg">
+            </div>
+          </div>           
+
+        <div class="card item" data-tags="觀前路｜探花·意境江南菜">
+            <div class="cardHead">
+              <div class="title">
+                <h3>觀前路｜探花·意境江南菜</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/探花·意境江南菜.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️店里装修很有江南那味儿，拍照也出片。招牌东坡肉超大一块，肥瘦刚好，入口即化；蟹粉豆腐拌饭绝了，豆香混着蟹鲜，能干两碗饭</p>
+            <div class="imgBox">
+              <img src="images/探花·意境江南菜.jpg">
+            </div>
+          </div>   
           
+        <div class="card item" data-tags="觀前路｜仁春园·苏帮菜·苏式面宴">
+            <div class="cardHead">
+              <div class="title">
+                <h3>觀前路｜仁春园·苏帮菜·苏式面宴</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/仁春园.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️店里装修很有江南那味儿，拍照也出片。招牌东坡肉超大一块，肥瘦刚好，入口即化；蟹粉豆腐拌饭绝了，豆香混着蟹鲜，能干两碗饭</p>
+            <div class="imgBox">
+              <img src="images/仁春园.jpg">
+            </div>
+          </div>   
+          
+        <div class="card item" data-tags="十全街｜西班牙小廚">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全街｜西班牙小廚</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/西班牙小廚.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️环境很好，很适合拍照，也很出片！但是餐食欠点意思出餐很慢（30分钟左右）为了拍照去的话，可以忽略我们点了西班牙海鲜烩饭，海鲜感觉不那么新鲜，口味还可以；烤鸡部分位置很柴😭还有青口贝，味道还行，中规中矩
+，总结：为了拍照好看，可以去。为了美食需要考量考量，可以首次尝鲜～</p>
+            <div class="imgBox">
+              <img src="images/西班牙小廚.jpg">
+            </div>
+          </div>  
+
+        <div class="card item" data-tags="十全街｜嘿啰面包">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全街｜嘿啰面包</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/嘿啰面包.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️布甸包和飞鱼籽法棍🥖是主推产品，布甸包很好吃，不踩雷👍一口气能炫4个！飞鱼籽法棍也不错，尤其是黑松露口味（有些宝子吃不习惯鱼籽会觉得腥，两极分化严重）其他的面包很多都是巴掌大，一个顶饱！就是有些小贵～
+，总结：可以冲主推品，价格略贵</p>
+            <div class="imgBox">
+              <img src="images/嘿啰面包.jpg">
+            </div>
+          </div>  
+
+        <div class="card item" data-tags="十全街｜fufuland">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全街｜fufuland</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/fufuland.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️装修和店名一样，奶fufu的～甜品🍮颜值很高，吃多会腻r💰人均18
+，总结：适合尝鲜和闺蜜、朋友共吃一个</p>
+            <div class="imgBox">
+              <img src="images/fufuland.jpg">
+            </div>
+          </div>  
+
+        <div class="card item" data-tags="十全街｜卢记烧饼">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全街｜卢记烧饼</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/卢记烧饼.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️好吃好吃！分量足，可以自己选择口味，里面的肉条也不腻哦～
+，总结：还会回购！</p>
+            <div class="imgBox">
+              <img src="images/卢记烧饼.jpg">
+            </div>
+          </div>  
+          
+        <div class="card item" data-tags="十全路｜chill创意韩国料理">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全路｜chill创意韩国料理</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/chill创意韩国料理.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️环境拍照很好看！菜品也很好吃，会约朋友去几次的地方👍</p>
+            <div class="imgBox">
+              <img src="images/chill创意韩国料理.jpg">
+            </div>
+          </div>  
+          
+        <div class="card item" data-tags="十全街｜连杏双皮奶">
+            <div class="cardHead">
+              <div class="title">
+                <h3>十全街｜连杏双皮奶</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/连杏双皮奶.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️中规中矩，无惊艳的地方，双皮奶的味道，奶味很重，💰人均18</p>
+            <div class="imgBox">
+              <img src="images/连杏双皮奶.jpg">
+            </div>
+          </div>  
+          
+        <div class="card item" data-tags="網師園｜姑苏桥·文人苏式面馆">
+            <div class="cardHead">
+              <div class="title">
+                <h3>網師園｜姑苏桥·文人苏式面馆</h3>
+              </div>
+              <div class="actions">
+                <button class="btn secondary" data-img="images/姑苏桥·文人苏式面馆.jpg">看圖片</button>
+              </div>
+            </div>
+            <p class="desc">⭐️🍜 第一站：姑苏桥文人苏式面馆
+▪️“一碗面，见江南” 不只是标语。这里把苏式面的精致做到了极致，从汤头到浇头，都透着文人的讲究。
+<br>🥩强推「匠心猪肝」：猪肝滑嫩如绸缎，酱香浓郁裹满每一根劲道细面，是惊艳味蕾的苏式烟火气。
+<br>🐟推荐「松鼠桂鱼」松子的香醇搭配酥脆的鱼肉，一口品人间美味
+<br>🌿环境是隐世的诗：店内笔墨纸砚点缀，吃面也成了风雅事。建议可以先在dp线上取号，光线透过木格窗，拍照自带复古滤镜</p>
+            <div class="imgBox">
+              <img src="images/姑苏桥·文人苏式面馆.jpg">
+            </div>
+          </div>   
+
       <!-- Info -->
       <div class="section" id="info">
         <div class="sectionTitle">
@@ -935,25 +1289,25 @@
     applyFilter();
 
     // ===== Image toggle (新增：data-img) =====
-    document.querySelectorAll('[data-img]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const card = btn.closest('.card');
-        const imgBox = card.querySelector('.imgBox');
-        const img = imgBox ? imgBox.querySelector('img') : null;
+    // ===== Image toggle (data-img) - 支援 .card 與 .tCard =====
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-img]');
+      if (!btn) return;
 
-        const src = btn.dataset.img;
-        const alt = btn.dataset.imgalt || '圖片';
+      const host = btn.closest('.card') || btn.closest('.tCard');
+      if (!host) return;
 
-        if (img) {
-          img.src = src;
-          img.alt = alt;
-        }
+      const src = btn.dataset.img;
 
-        card.classList.toggle('show-img');
-        btn.textContent = card.classList.contains('show-img') ? '收起圖片' : '看圖片';
-      });
+      const imgBox = host.querySelector('.imgBox');
+      const img = imgBox ? imgBox.querySelector('img') : null;
+
+      if (img) img.src = encodeURI(src);
+
+      host.classList.toggle('show-img');
+      btn.textContent = host.classList.contains('show-img') ? '收起圖片' : '看圖片';
     });
+
   </script>
 </body>
 </html>
-```
