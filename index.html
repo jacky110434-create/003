@@ -766,12 +766,14 @@
 
           <div class="row titem" data-tags="獅子林">
             <div class="time">14:00</div>
-            <div class="tCard compact">
+
+            <div class="tCard compact" data-place="獅子林, 蘇州市姑蘇區, 江蘇省, 中國">
               <h3>獅子林</h3>
               <div class="tActions">
                 <a class="link" target="_blank" href="https://maps.app.goo.gl/Tb6phZuSdiBMgmHW6">📍 開地圖</a>
                 <button class="btn secondary" data-detail>看詳情</button>
               </div>
+
               <div class="small">門票40r<br>
                 游玩路线:(17:00)關園<br>
                 入口→门厅→祠堂→燕誉堂→小方厅→打盹亭→
@@ -779,35 +781,45 @@
                 真趣亭→暗香疏影楼→石舫→飞瀑亭→湖心亭→问梅阁→
                 双香仙馆→扇亭→文天祥碑亭→御碑亭→修竹阁→水假山
                 →旱假山→卧云室→立雪堂→出口<br>
-                  ============================================<br>
+                ============================================<br>
                 📸 拍照攻略(迷宫打卡指南)<br>
                 ✅ 「九狮峰」仰拍：清晨光线最适合<br>
                 ✅ 「假山迷宫」俯拍：站高处的亭子往下拍<br>
                 ✅ 「燕誉堂」框景：透过月洞门拍白紫藤<br>
                 ✅ 「石舫」倒影：下午四点水面最平静<br>
-                ✅ 「修竹阁」窗景：竹影婆娑超有禅意</div>
+                ✅ 「修竹阁」窗景：竹影婆娑超有禅意
+              </div>
+
               <div class="imgBox">
                 <img src="images/獅子林.jpg" alt="獅子林">
               </div>
             </div>
           </div>
 
+
           <div class="row titem" data-tags="平江路">
             <div class="time">16:30</div>
-            <div class="tCard compact">
+
+            <div class="tCard compact" data-place="平江河, 蘇州市姑蘇區, 江蘇省, 中國">
               <h3>平江路</h3>
               <div class="tActions">
-                <a class="link" target="_blank" href="https://maps.app.goo.gl/p9FrCrLjZXVyM4mU6">📍 開地圖</a>
+                <a class="link" target="_blank" href="https://maps.app.goo.gl/5GqzLdbPaFgXBgTc7">📍 開地圖</a>
                 <button class="btn secondary" data-detail>看詳情</button>
               </div>
-              <div class="small">慢慢走走，吃晚餐、搭小船。<br>
-              美食路线：<br>
-              苏香记➡️梅月轩➡️鑫震源➡️茉香枕河➡️拙林里➡️沈万三➡️余丰堂➡️百年福</div>
+
+              <div class="small">
+                慢慢走走，吃晚餐、搭小船。<br>
+                美食路线：<br>
+                苏香记➡️梅月轩➡️鑫震源➡️茉香枕河➡️拙林里➡️沈万三➡️余丰堂➡️百年福
+              </div>
+
               <div class="imgBox">
                 <img src="images/平江路.jpg" alt="平江路">
               </div>
             </div>
           </div>
+
+
 
           <div class="row titem" data-tags="觀前街">
             <div class="time">19:00</div>
@@ -1955,7 +1967,16 @@
       const sec = document.getElementById(dayId);
       if (!sec) return showToast('找不到該天行程');
 
-      const places = Array.from(sec.querySelectorAll('.tCard h3')).map(h => h.textContent);
+      const places = Array.from(sec.querySelectorAll('.tCard')).map(card => {
+        // 1) 優先用 data-place
+        const p = (card.dataset.place || '').trim();
+        if (p) return p;
+
+        // 2) 沒有 data-place 就退回用 h3
+        const h3 = card.querySelector('h3');
+        return (h3 ? h3.textContent : '').trim();
+      }).filter(Boolean);
+
       const url = buildDirUrl(places);
 
       if (!url) return showToast('該天行程點太少，無法產生路線');
