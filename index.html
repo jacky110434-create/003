@@ -4,15 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>蘇州 上海 Guide</title>
-
   <style>
     :root{
       /* ===== 園林夕照：宣紙米白 / 水面墨綠 / 夕陽暖金 / 黛瓦青灰 ===== */
-      --bg:#f7f1e6;                      /* 米白宣紙底 */
+      --bg:#f7f1e6;
       --surface: rgba(255,255,255,.74);
       --card: rgba(255,255,255,.76);
       --card2: rgba(255,255,255,.60);
-      --text:#1e2326;                    /* 墨色字 */
+      --text:#1e2326;
       --muted: rgba(30,35,38,.70);
       --muted2: rgba(30,35,38,.55);
       --line: rgba(30,35,38,.12);
@@ -20,19 +19,24 @@
       --shadow2: 0 10px 26px rgba(30,35,38,.08);
       --radius:18px;
 
-      --brand:#2f6f66;                   /* 水邊青綠 */
-      --brand2:#d9b47a;                  /* 夕陽淡金 */
-      --brand3:#355a63;                  /* 黛瓦青灰 */
+      --brand:#2f6f66;
+      --brand2:#d9b47a;
+      --brand3:#355a63;
       --chip: rgba(47,111,102,.10);
+
+      /* ✅ 主要左右留白（會依螢幕自動調整） */
+      --page-pad: clamp(18px, 4.6vw, 24px);
 
       font-family:
         "Noto Serif TC","Noto Serif SC","Songti TC","STSong","Source Han Serif TC",
         ui-serif, Georgia, "Times New Roman",
         "Noto Sans TC","PingFang TC","Microsoft JhengHei", sans-serif;
-        
     }
 
     *{ box-sizing:border-box; }
+
+    /* ✅ 防止水平溢出導致右側被裁/出現奇怪空白 */
+    html, body{ overflow-x: hidden; }
 
     body{
       margin:0;
@@ -48,7 +52,7 @@
       max-width: 520px;
       margin: 0 auto;
       min-height: 100vh;
-      padding-bottom: 120px; /* 避免被底部 nav 擋住 */
+      padding-bottom: 120px;
     }
 
     /* ===== Top hero ===== */
@@ -56,10 +60,15 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      padding: 18px 16px 12px;
+
+      /* ✅ 吃 safe-area：左右邊界清楚、不貼邊 */
+      padding-top: 18px;
+      padding-bottom: 12px;
+      padding-left:  calc(var(--page-pad) + env(safe-area-inset-left));
+      padding-right: calc(var(--page-pad) + env(safe-area-inset-right));
+
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
-      /* 圖片 + 宣紙霧面 */
       background:
         linear-gradient(180deg, rgba(247,241,230,.92), rgba(247,241,230,.74)),
         url("images/garden.jpg") center/cover no-repeat;
@@ -144,8 +153,14 @@
     }
 
     /* ===== Content ===== */
-    /* ✅ 改這行：左右留白更舒服 */
-    .content{ padding: 12px 20px 8px; }
+    .content{
+      padding-top: 12px;
+      padding-bottom: 8px;
+
+      /* ✅ 吃 safe-area：卡片/文字整體往中間靠 */
+      padding-left:  calc(var(--page-pad) + env(safe-area-inset-left));
+      padding-right: calc(var(--page-pad) + env(safe-area-inset-right));
+    }
 
     .section{ display:none; }
     .section.active{ display:block; }
@@ -293,10 +308,7 @@
       box-shadow: var(--shadow2);
       overflow:hidden;
     }
-    /* 只在「有看詳情」的行程卡片上，把文字先藏起來 */
-    .tCard.compact .small{
-      display:none;
-    }
+    .tCard.compact .small{ display:none; }
 
     .tCard::before{
       content:"";
@@ -351,10 +363,7 @@
     }
 
     /* ===== Card image toggle ===== */
-    .imgBox{
-      display: none;
-      margin-top: 10px;
-    }
+    .imgBox{ display: none; margin-top: 10px; }
     .card.show-img .imgBox{ display: block; }
     .tCard.show-img .imgBox{ display: block; }
 
@@ -376,9 +385,7 @@
       border: 1px solid rgba(30,35,38,.12);
       overflow:auto;
       scrollbar-width:none;
-
-      /* ✅ 新增：seg 自己也離左右邊更開一點點，減少「貼邊感」 */
-      margin: 0 2px;
+      margin: 0; /* ✅ 跟著 content 的 padding 走 */
     }
     .seg::-webkit-scrollbar{ display:none; }
     .segBtn{
@@ -403,8 +410,16 @@
       left: 50%;
       transform: translateX(-50%);
       bottom: 0;
+
+      /* ✅ 保持容器穩定，避免某些機型 calc 出問題 */
       width: min(520px, 100%);
-      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+
+      /* ✅ 左右吃 safe-area，視覺邊界清楚 */
+      padding-top: 10px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      padding-left:  calc(14px + env(safe-area-inset-left));
+      padding-right: calc(14px + env(safe-area-inset-right));
+
       background: rgba(247,241,230,.92);
       border-top: 1px solid rgba(30,35,38,.12);
       backdrop-filter: blur(10px);
@@ -443,14 +458,22 @@
       left:50%;
       transform: translateX(-50%);
       bottom: 0;
+
       width: min(520px, 100%);
       max-height: 82vh;
       overflow:auto;
+
       background: rgba(247,241,230,.96);
       border: 1px solid rgba(30,35,38,.12);
       border-radius: 22px 22px 0 0;
       box-shadow: 0 18px 46px rgba(0,0,0,.18);
-      padding: 16px 16px calc(18px + env(safe-area-inset-bottom));
+
+      /* ✅ modal 也吃 safe-area，避免左右貼邊 */
+      padding-top: 16px;
+      padding-bottom: calc(18px + env(safe-area-inset-bottom));
+      padding-left:  calc(16px + env(safe-area-inset-left));
+      padding-right: calc(16px + env(safe-area-inset-right));
+      
     }
     .modalClose{
       position: sticky;
@@ -476,14 +499,8 @@
     }
 
     /* ===== Bill ===== */
-    .billGrid{
-      display:grid;
-      gap: 12px;
-    }
-    .field{
-      display:grid;
-      gap: 8px;
-    }
+    .billGrid{ display:grid; gap: 12px; }
+    .field{ display:grid; gap: 8px; }
     .field label{
       font-weight: 900;
       font-size: 13px;
@@ -499,11 +516,7 @@
       font-size: 14px;
       color: var(--text);
     }
-    .chipRow{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+    .chipRow{ display:flex; gap: 10px; flex-wrap: wrap; }
     .chipBtn{
       border: 1px solid rgba(30,35,38,.14);
       background: rgba(255,255,255,.62);
@@ -518,10 +531,7 @@
       border-color: rgba(47,111,102,.22);
       color: rgba(47,111,102,.95);
     }
-    .billTable{
-      display:grid;
-      gap: 10px;
-    }
+    .billTable{ display:grid; gap: 10px; }
     .billRow{
       display:flex;
       justify-content:space-between;
@@ -532,13 +542,7 @@
       border: 1px solid rgba(30,35,38,.12);
     }
     .mono{ font-variant-numeric: tabular-nums; }
-
-    /* ✅ 新增：小螢幕再微調，不要太擠 */
-    @media (max-width: 520px){
-      .content{ padding-left: 18px; padding-right: 18px; }
-    }
   </style>
-
 </head>
 
 <body>
