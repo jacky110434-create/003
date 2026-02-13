@@ -542,6 +542,66 @@
       border: 1px solid rgba(30,35,38,.12);
     }
     .mono{ font-variant-numeric: tabular-nums; }
+    /* ✅ Explore / 美食清單：整區左右留白 */
+    #food{
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* ✅ Seg（上面那排按鈕）不要貼邊，且可左右滑動不擠 */
+    #foodSeg{
+      margin: 0 6px;                 /* 外側留白 */
+      padding: 10px 12px;            /* 內側留白 */
+      border-radius: 999px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #foodSeg::-webkit-scrollbar{ display:none; }
+
+    /* ✅ 每張卡不要貼邊、內容不要擠 */
+    #foodGrid{
+      padding: 0 6px;                /* 卡片容器左右留白 */
+    }
+    #foodGrid .card.item{
+      margin: 0 0 12px;              /* 卡片上下間距 */
+      padding: 14px;                 /* 卡片內距變大 */
+      border-radius: 18px;
+    }
+
+    /* ✅ 卡片內文左右再鬆一點（你那段 p.desc 很長） */
+    #foodGrid .card.item .desc{
+      margin-top: 10px;
+      line-height: 1.65;
+    }
+    /* ✅ Bill / Info / Guide：整區左右留白（跟 #food 一樣） */
+    #bill, #info, #guide{
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* ✅ 這三頁裡的 grid 容器左右留白（避免卡片貼邊） */
+    #bill .grid,
+    #info .grid,
+    #guide .grid{
+      padding: 0 6px;
+    }
+
+    /* ✅ 這三頁裡的卡片也加內距，視覺更鬆（不影響你原本排版） */
+    #bill .card,
+    #info .card,
+    #guide .card{
+      margin: 0 0 12px;
+      padding: 14px;
+      border-radius: 18px;
+    }
+
+    /* ✅ Info/Guide 的長文段落更好讀 */
+    #info .card .desc,
+    #guide .card .desc{
+      margin-top: 10px;
+      line-height: 1.65;
+}
+
   </style>
 </head>
 
